@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Database1", "Database1\Database1.dbproj", "{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4B3EC4-17C8-4F59-97E4-AA83B843D73E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

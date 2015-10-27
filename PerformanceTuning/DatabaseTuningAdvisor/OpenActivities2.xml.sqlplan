@@ -1,0 +1,522 @@
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.0" Build="9.00.4035.00">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="select  DISTINCT  top 51 &#xD;&#xA;&#x9;activitypointer0.Subject as 'subject', &#xD;&#xA;&#x9;activitypointer0.ActivityId as 'activityid', &#xD;&#xA;&#x9;activitypointer0.ScheduledStart as 'scheduledstart', &#xD;&#xA;&#x9;activitypointer0.RegardingObjectId as 'regardingobjectid', &#xD;&#xA;&#x9;activitypointer0.PriorityCode as 'prioritycode', &#xD;&#xA;&#x9;activitypointer0.ScheduledEnd as 'scheduledend', &#xD;&#xA;&#x9;activitypointer0.ActivityTypeCode as 'activitytypecode', &#xD;&#xA;&#x9;activitypointer0.RegardingObjectIdDsc as 'regardingobjectiddsc', &#xD;&#xA;&#x9;activitypointer0.RegardingObjectTypeCode as 'regardingobjecttypecode', &#xD;&#xA;&#x9;activitypointer0.RegardingObjectIdYomiName as 'regardingobjectidyominame', &#xD;&#xA;&#x9;activitypointer0.RegardingObjectIdName as 'regardingobjectidname' &#xD;&#xA;from ActivityPointer as activitypointer0 &#xD;&#xA;&#x9;join ActivityParty as aa on &#xD;&#xA;&#x9;(activitypointer0.ActivityId  =  aa.ActivityId and (aa.PartyId = @PartyId0)) &#xD;&#xA;&#x9;where ((activitypointer0.StateCode in (@StateCode0, @StateCode1)) &#xD;&#xA;&#x9;and (activitypointer0.ActivityTypeCode != @ActivityTypeCode0 &#xD;&#xA;&#x9;&#x9;or activitypointer0.ActivityTypeCode is null) &#xD;&#xA;&#x9;and (activitypointer0.DeletionStateCode in (@DeletionStateCode0))) &#xD;&#xA;&#x9;order by activitypointer0.ScheduledEnd asc" StatementId="1" StatementCompId="2" StatementType="SELECT" StatementSubTreeCost="0.0179337" StatementEstRows="1" StatementOptmLevel="FULL" StatementOptmEarlyAbortReason="GoodEnoughPlanFound">
+          <StatementSetOptions QUOTED_IDENTIFIER="false" ARITHABORT="true" CONCAT_NULL_YIELDS_NULL="false" ANSI_NULLS="false" ANSI_PADDING="false" ANSI_WARNINGS="false" NUMERIC_ROUNDABORT="false" />
+          <QueryPlan DegreeOfParallelism="1" MemoryGrant="66" CachedPlanSize="66" CompileTime="116" CompileCPU="68" CompileMemory="968">
+            <RelOp NodeId="0" PhysicalOp="Top" LogicalOp="Top" EstimateRows="1" EstimateIO="0" EstimateCPU="1e-007" AvgRowSize="1080" EstimatedTotalSubtreeCost="0.0179337" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+              <OutputList>
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+              </OutputList>
+              <RunTimeInformation>
+                <RunTimeCountersPerThread Thread="0" ActualRows="51" ActualEndOfScans="1" ActualExecutions="1" />
+              </RunTimeInformation>
+              <Top RowCount="0" IsPercent="0" WithTies="0">
+                <TopExpression>
+                  <ScalarOperator ScalarString="(51)">
+                    <Const ConstValue="(51)" />
+                  </ScalarOperator>
+                </TopExpression>
+                <RelOp NodeId="1" PhysicalOp="Sort" LogicalOp="Distinct Sort" EstimateRows="1" EstimateIO="0.0112613" EstimateCPU="0.00010108" AvgRowSize="1080" EstimatedTotalSubtreeCost="0.0179336" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                  <OutputList>
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+                  </OutputList>
+                  <MemoryFractions Input="1" Output="1" />
+                  <RunTimeInformation>
+                    <RunTimeCountersPerThread Thread="0" ActualRows="51" ActualRebinds="1" ActualRewinds="0" ActualEndOfScans="0" ActualExecutions="1" />
+                  </RunTimeInformation>
+                  <Sort Distinct="1">
+                    <OrderBy>
+                      <OrderByColumn Ascending="1">
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                      </OrderByColumn>
+                      <OrderByColumn Ascending="1">
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                      </OrderByColumn>
+                    </OrderBy>
+                    <RelOp NodeId="2" PhysicalOp="Nested Loops" LogicalOp="Inner Join" EstimateRows="1" EstimateIO="0" EstimateCPU="4.18e-006" AvgRowSize="1080" EstimatedTotalSubtreeCost="0.00657126" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                      <OutputList>
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+                      </OutputList>
+                      <RunTimeInformation>
+                        <RunTimeCountersPerThread Thread="0" ActualRows="51758" ActualEndOfScans="1" ActualExecutions="1" />
+                      </RunTimeInformation>
+                      <NestedLoops Optimized="0">
+                        <OuterReferences>
+                          <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Column="ActivityId" />
+                        </OuterReferences>
+                        <RelOp NodeId="3" PhysicalOp="Index Seek" LogicalOp="Index Seek" EstimateRows="1" EstimateIO="0.003125" EstimateCPU="0.0001581" AvgRowSize="23" EstimatedTotalSubtreeCost="0.0032831" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                          <OutputList>
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Column="ActivityId" />
+                          </OutputList>
+                          <RunTimeInformation>
+                            <RunTimeCountersPerThread Thread="0" ActualRows="226787" ActualEndOfScans="1" ActualExecutions="1" />
+                          </RunTimeInformation>
+                          <IndexScan Ordered="1" ScanDirection="FORWARD" ForcedIndex="0" NoExpandHint="0">
+                            <DefinedValues>
+                              <DefinedValue>
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Column="ActivityId" />
+                              </DefinedValue>
+                            </DefinedValues>
+                            <Object Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Index="[ndx_ActivityParty]" />
+                            <SeekPredicates>
+                              <SeekPredicate>
+                                <Prefix ScanType="EQ">
+                                  <RangeColumns>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Column="PartyId" />
+                                  </RangeColumns>
+                                  <RangeExpressions>
+                                    <ScalarOperator ScalarString="[@PartyId0]">
+                                      <Identifier>
+                                        <ColumnReference Column="@PartyId0" />
+                                      </Identifier>
+                                    </ScalarOperator>
+                                  </RangeExpressions>
+                                </Prefix>
+                              </SeekPredicate>
+                            </SeekPredicates>
+                          </IndexScan>
+                        </RelOp>
+                        <RelOp NodeId="4" PhysicalOp="Nested Loops" LogicalOp="Inner Join" EstimateRows="1" EstimateIO="0.003125" EstimateCPU="0.0001581" AvgRowSize="1084" EstimatedTotalSubtreeCost="0.0032831" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                          <OutputList>
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="DeletionStateCode" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+                          </OutputList>
+                          <RunTimeInformation>
+                            <RunTimeCountersPerThread Thread="0" ActualRows="51758" ActualEndOfScans="175029" ActualExecutions="226787" />
+                          </RunTimeInformation>
+                          <NestedLoops Optimized="0">
+                            <OuterReferences>
+                              <ColumnReference Column="Expr1041" />
+                              <ColumnReference Column="Expr1042" />
+                              <ColumnReference Column="Expr1043" />
+                            </OuterReferences>
+                            <RelOp NodeId="5" PhysicalOp="Merge Interval" LogicalOp="Merge Interval" EstimateRows="2" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                              <OutputList>
+                                <ColumnReference Column="Expr1041" />
+                                <ColumnReference Column="Expr1042" />
+                                <ColumnReference Column="Expr1043" />
+                              </OutputList>
+                              <RunTimeInformation>
+                                <RunTimeCountersPerThread Thread="0" ActualRows="401819" ActualEndOfScans="175029" ActualExecutions="226787" />
+                              </RunTimeInformation>
+                              <MergeInterval>
+                                <RelOp NodeId="6" PhysicalOp="Sort" LogicalOp="TopN Sort" EstimateRows="2" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                  <OutputList>
+                                    <ColumnReference Column="Expr1041" />
+                                    <ColumnReference Column="Expr1042" />
+                                    <ColumnReference Column="Expr1043" />
+                                    <ColumnReference Column="Expr1044" />
+                                    <ColumnReference Column="Expr1045" />
+                                    <ColumnReference Column="Expr1046" />
+                                  </OutputList>
+                                  <MemoryFractions Input="0" Output="0" />
+                                  <RunTimeInformation>
+                                    <RunTimeCountersPerThread Thread="0" ActualRows="453574" ActualRebinds="1" ActualRewinds="226786" ActualEndOfScans="175032" ActualExecutions="226787" />
+                                  </RunTimeInformation>
+                                  <TopSort Distinct="0" Rows="2">
+                                    <OrderBy>
+                                      <OrderByColumn Ascending="0">
+                                        <ColumnReference Column="Expr1044" />
+                                      </OrderByColumn>
+                                      <OrderByColumn Ascending="1">
+                                        <ColumnReference Column="Expr1045" />
+                                      </OrderByColumn>
+                                      <OrderByColumn Ascending="1">
+                                        <ColumnReference Column="Expr1041" />
+                                      </OrderByColumn>
+                                      <OrderByColumn Ascending="0">
+                                        <ColumnReference Column="Expr1046" />
+                                      </OrderByColumn>
+                                    </OrderBy>
+                                    <RelOp NodeId="7" PhysicalOp="Compute Scalar" LogicalOp="Compute Scalar" EstimateRows="2" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                      <OutputList>
+                                        <ColumnReference Column="Expr1041" />
+                                        <ColumnReference Column="Expr1042" />
+                                        <ColumnReference Column="Expr1043" />
+                                        <ColumnReference Column="Expr1044" />
+                                        <ColumnReference Column="Expr1045" />
+                                        <ColumnReference Column="Expr1046" />
+                                      </OutputList>
+                                      <ComputeScalar>
+                                        <DefinedValues>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1044" />
+                                            <ScalarOperator ScalarString="((4)&amp;[Expr1043]) = (4) AND NULL = [Expr1041]">
+                                              <Logical Operation="AND">
+                                                <ScalarOperator>
+                                                  <Compare CompareOp="IS">
+                                                    <ScalarOperator>
+                                                      <Arithmetic Operation="BIT_AND">
+                                                        <ScalarOperator>
+                                                          <Const ConstValue="(4)" />
+                                                        </ScalarOperator>
+                                                        <ScalarOperator>
+                                                          <Identifier>
+                                                            <ColumnReference Column="Expr1043" />
+                                                          </Identifier>
+                                                        </ScalarOperator>
+                                                      </Arithmetic>
+                                                    </ScalarOperator>
+                                                    <ScalarOperator>
+                                                      <Const ConstValue="(4)" />
+                                                    </ScalarOperator>
+                                                  </Compare>
+                                                </ScalarOperator>
+                                                <ScalarOperator>
+                                                  <Compare CompareOp="IS">
+                                                    <ScalarOperator>
+                                                      <Const ConstValue="NULL" />
+                                                    </ScalarOperator>
+                                                    <ScalarOperator>
+                                                      <Identifier>
+                                                        <ColumnReference Column="Expr1041" />
+                                                      </Identifier>
+                                                    </ScalarOperator>
+                                                  </Compare>
+                                                </ScalarOperator>
+                                              </Logical>
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1045" />
+                                            <ScalarOperator ScalarString="(4)&amp;[Expr1043]">
+                                              <Arithmetic Operation="BIT_AND">
+                                                <ScalarOperator>
+                                                  <Const ConstValue="(4)" />
+                                                </ScalarOperator>
+                                                <ScalarOperator>
+                                                  <Identifier>
+                                                    <ColumnReference Column="Expr1043" />
+                                                  </Identifier>
+                                                </ScalarOperator>
+                                              </Arithmetic>
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                          <DefinedValue>
+                                            <ColumnReference Column="Expr1046" />
+                                            <ScalarOperator ScalarString="(16)&amp;[Expr1043]">
+                                              <Arithmetic Operation="BIT_AND">
+                                                <ScalarOperator>
+                                                  <Const ConstValue="(16)" />
+                                                </ScalarOperator>
+                                                <ScalarOperator>
+                                                  <Identifier>
+                                                    <ColumnReference Column="Expr1043" />
+                                                  </Identifier>
+                                                </ScalarOperator>
+                                              </Arithmetic>
+                                            </ScalarOperator>
+                                          </DefinedValue>
+                                        </DefinedValues>
+                                        <RelOp NodeId="8" PhysicalOp="Concatenation" LogicalOp="Concatenation" EstimateRows="2" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                          <OutputList>
+                                            <ColumnReference Column="Expr1041" />
+                                            <ColumnReference Column="Expr1042" />
+                                            <ColumnReference Column="Expr1043" />
+                                          </OutputList>
+                                          <RunTimeInformation>
+                                            <RunTimeCountersPerThread Thread="0" ActualRows="453574" ActualEndOfScans="226787" ActualExecutions="226787" />
+                                          </RunTimeInformation>
+                                          <Concat>
+                                            <DefinedValues>
+                                              <DefinedValue>
+                                                <ColumnReference Column="Expr1041" />
+                                                <ColumnReference Column="@StateCode1" />
+                                                <ColumnReference Column="@StateCode0" />
+                                              </DefinedValue>
+                                              <DefinedValue>
+                                                <ColumnReference Column="Expr1042" />
+                                                <ColumnReference Column="@StateCode1" />
+                                                <ColumnReference Column="@StateCode0" />
+                                              </DefinedValue>
+                                              <DefinedValue>
+                                                <ColumnReference Column="Expr1043" />
+                                                <ColumnReference Column="Expr1035" />
+                                                <ColumnReference Column="Expr1038" />
+                                              </DefinedValue>
+                                            </DefinedValues>
+                                            <RelOp NodeId="9" PhysicalOp="Compute Scalar" LogicalOp="Compute Scalar" EstimateRows="1" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                              <OutputList>
+                                                <ColumnReference Column="@StateCode1" />
+                                                <ColumnReference Column="@StateCode1" />
+                                                <ColumnReference Column="Expr1035" />
+                                              </OutputList>
+                                              <ComputeScalar>
+                                                <DefinedValues>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="@StateCode1" />
+                                                    <ScalarOperator ScalarString="[@StateCode1]">
+                                                      <Identifier>
+                                                        <ColumnReference Column="@StateCode1" />
+                                                      </Identifier>
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="@StateCode1" />
+                                                    <ScalarOperator ScalarString="[@StateCode1]">
+                                                      <Identifier>
+                                                        <ColumnReference Column="@StateCode1" />
+                                                      </Identifier>
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="Expr1035" />
+                                                    <ScalarOperator ScalarString="(62)">
+                                                      <Const ConstValue="(62)" />
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                </DefinedValues>
+                                                <RelOp NodeId="10" PhysicalOp="Constant Scan" LogicalOp="Constant Scan" EstimateRows="1" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                                  <OutputList />
+                                                  <RunTimeInformation>
+                                                    <RunTimeCountersPerThread Thread="0" ActualRows="226787" ActualEndOfScans="226787" ActualExecutions="226787" />
+                                                  </RunTimeInformation>
+                                                  <ConstantScan />
+                                                </RelOp>
+                                              </ComputeScalar>
+                                            </RelOp>
+                                            <RelOp NodeId="18" PhysicalOp="Compute Scalar" LogicalOp="Compute Scalar" EstimateRows="1" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                              <OutputList>
+                                                <ColumnReference Column="@StateCode0" />
+                                                <ColumnReference Column="@StateCode0" />
+                                                <ColumnReference Column="Expr1038" />
+                                              </OutputList>
+                                              <ComputeScalar>
+                                                <DefinedValues>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="@StateCode0" />
+                                                    <ScalarOperator ScalarString="[@StateCode0]">
+                                                      <Identifier>
+                                                        <ColumnReference Column="@StateCode0" />
+                                                      </Identifier>
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="@StateCode0" />
+                                                    <ScalarOperator ScalarString="[@StateCode0]">
+                                                      <Identifier>
+                                                        <ColumnReference Column="@StateCode0" />
+                                                      </Identifier>
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                  <DefinedValue>
+                                                    <ColumnReference Column="Expr1038" />
+                                                    <ScalarOperator ScalarString="(62)">
+                                                      <Const ConstValue="(62)" />
+                                                    </ScalarOperator>
+                                                  </DefinedValue>
+                                                </DefinedValues>
+                                                <RelOp NodeId="19" PhysicalOp="Constant Scan" LogicalOp="Constant Scan" EstimateRows="1" EstimateIO="0" EstimateCPU="0" AvgRowSize="0" EstimatedTotalSubtreeCost="0" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                                                  <OutputList />
+                                                  <RunTimeInformation>
+                                                    <RunTimeCountersPerThread Thread="0" ActualRows="226787" ActualEndOfScans="226787" ActualExecutions="226787" />
+                                                  </RunTimeInformation>
+                                                  <ConstantScan />
+                                                </RelOp>
+                                              </ComputeScalar>
+                                            </RelOp>
+                                          </Concat>
+                                        </RelOp>
+                                      </ComputeScalar>
+                                    </RelOp>
+                                  </TopSort>
+                                </RelOp>
+                              </MergeInterval>
+                            </RelOp>
+                            <RelOp NodeId="34" PhysicalOp="Clustered Index Seek" LogicalOp="Clustered Index Seek" EstimateRows="1" EstimateIO="0.003125" EstimateCPU="0.0001581" AvgRowSize="1084" EstimatedTotalSubtreeCost="0.0032831" Parallel="0" EstimateRebinds="0" EstimateRewinds="0">
+                              <OutputList>
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="DeletionStateCode" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                                <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+                              </OutputList>
+                              <RunTimeInformation>
+                                <RunTimeCountersPerThread Thread="0" ActualRows="51758" ActualEndOfScans="350061" ActualExecutions="401819" />
+                              </RunTimeInformation>
+                              <IndexScan Ordered="1" ScanDirection="FORWARD" ForcedIndex="0" NoExpandHint="0">
+                                <DefinedValues>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="DeletionStateCode" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledEnd" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="PriorityCode" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectId" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="Subject" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ScheduledStart" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectTypeCode" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdDsc" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdName" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="RegardingObjectIdYomiName" />
+                                  </DefinedValue>
+                                </DefinedValues>
+                                <Object Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Index="[cndx_ActivityPointer]" />
+                                <SeekPredicates>
+                                  <SeekPredicate>
+                                    <Prefix ScanType="EQ">
+                                      <RangeColumns>
+                                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityId" />
+                                      </RangeColumns>
+                                      <RangeExpressions>
+                                        <ScalarOperator ScalarString="[ASDSS_MSCRM].[dbo].[ActivityPartyBase].[ActivityId]">
+                                          <Identifier>
+                                            <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPartyBase]" Column="ActivityId" />
+                                          </Identifier>
+                                        </ScalarOperator>
+                                      </RangeExpressions>
+                                    </Prefix>
+                                    <StartRange ScanType="GT">
+                                      <RangeColumns>
+                                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="StateCode" />
+                                      </RangeColumns>
+                                      <RangeExpressions>
+                                        <ScalarOperator ScalarString="[Expr1041]">
+                                          <Identifier>
+                                            <ColumnReference Column="Expr1041" />
+                                          </Identifier>
+                                        </ScalarOperator>
+                                      </RangeExpressions>
+                                    </StartRange>
+                                    <EndRange ScanType="LT">
+                                      <RangeColumns>
+                                        <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="StateCode" />
+                                      </RangeColumns>
+                                      <RangeExpressions>
+                                        <ScalarOperator ScalarString="[Expr1042]">
+                                          <Identifier>
+                                            <ColumnReference Column="Expr1042" />
+                                          </Identifier>
+                                        </ScalarOperator>
+                                      </RangeExpressions>
+                                    </EndRange>
+                                  </SeekPredicate>
+                                </SeekPredicates>
+                                <Predicate>
+                                  <ScalarOperator ScalarString="[ASDSS_MSCRM].[dbo].[ActivityPointerBase].[DeletionStateCode]=[@DeletionStateCode0] AND [ASDSS_MSCRM].[dbo].[ActivityPointerBase].[ActivityTypeCode]&lt;&gt;[@ActivityTypeCode0]">
+                                    <Logical Operation="AND">
+                                      <ScalarOperator>
+                                        <Compare CompareOp="EQ">
+                                          <ScalarOperator>
+                                            <Identifier>
+                                              <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="DeletionStateCode" />
+                                            </Identifier>
+                                          </ScalarOperator>
+                                          <ScalarOperator>
+                                            <Identifier>
+                                              <ColumnReference Column="@DeletionStateCode0" />
+                                            </Identifier>
+                                          </ScalarOperator>
+                                        </Compare>
+                                      </ScalarOperator>
+                                      <ScalarOperator>
+                                        <Compare CompareOp="NE">
+                                          <ScalarOperator>
+                                            <Identifier>
+                                              <ColumnReference Database="[ASDSS_MSCRM]" Schema="[dbo]" Table="[ActivityPointerBase]" Column="ActivityTypeCode" />
+                                            </Identifier>
+                                          </ScalarOperator>
+                                          <ScalarOperator>
+                                            <Identifier>
+                                              <ColumnReference Column="@ActivityTypeCode0" />
+                                            </Identifier>
+                                          </ScalarOperator>
+                                        </Compare>
+                                      </ScalarOperator>
+                                    </Logical>
+                                  </ScalarOperator>
+                                </Predicate>
+                              </IndexScan>
+                            </RelOp>
+                          </NestedLoops>
+                        </RelOp>
+                      </NestedLoops>
+                    </RelOp>
+                  </Sort>
+                </RelOp>
+              </Top>
+            </RelOp>
+            <ParameterList>
+              <ColumnReference Column="@DeletionStateCode0" ParameterCompiledValue="(0)" ParameterRuntimeValue="(0)" />
+              <ColumnReference Column="@ActivityTypeCode0" ParameterCompiledValue="(4406)" ParameterRuntimeValue="(4406)" />
+              <ColumnReference Column="@StateCode0" ParameterCompiledValue="(0)" ParameterRuntimeValue="(0)" />
+              <ColumnReference Column="@StateCode1" ParameterCompiledValue="(3)" ParameterRuntimeValue="(3)" />
+              <ColumnReference Column="@PartyId0" ParameterCompiledValue="{guid'B7004586-B4C2-DD11-B8A2-000C29CA1BF8'}" ParameterRuntimeValue="{guid'BA879346-B258-DD11-B663-000C29CDCB00'}" />
+            </ParameterList>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

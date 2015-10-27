@@ -1,0 +1,20 @@
+﻿<Employees>
+  <Employee>
+    <BusinessEntityID>1</BusinessEntityID>
+    <FullName>Sánchez, Ken</FullName>
+    <JobTitle>Chief Executive Officer</JobTitle>
+    <BirthDate>1959-03-02</BirthDate>
+  </Employee>
+  <Employee>
+    <BusinessEntityID>2</BusinessEntityID>
+    <FullName>Duffy, Terri</FullName>
+    <JobTitle>Vice President of Engineering</JobTitle>
+    <BirthDate>1961-09-01</BirthDate>
+  </Employee>
+  <Employee>
+    <BusinessEntityID>3</BusinessEntityID>
+    <FullName>Tamburello, Roberto</FullName>
+    <JobTitle>Engineering Manager</JobTitle>
+    <BirthDate>1964-12-13</BirthDate>
+  </Employee>
+</Employees>
